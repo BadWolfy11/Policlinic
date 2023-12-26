@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Policlinic</string>
+    <string name="sign_in_password">password</string>
+    <string name="sign_in_email">email</string>
+    <string name="title_activity_registration">Registration</string>
+    <string name="sign_in_submit">registr</string>
+</resources>
