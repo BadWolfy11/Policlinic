@@ -40,6 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import com.example.policlinic.ui.theme.PoliclinicTheme
+import java.sql.Connection
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,10 +66,34 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {  var loginValue = re
     var errorState = remember { mutableStateOf(false) }
     var arrorMessage = remember { mutableStateOf("") }
 
+    var column1Value = ""
+
+
+    try {
+        val connection = Connect()
+        val some = connection.getConnection()
+
+        val statement = some.createStatement()
+        val resultSet = statement.executeQuery("SELECT * FROM user")
+
+
+        while (resultSet.next()) {
+             column1Value = resultSet.getString("column1")
+            val column2Value = resultSet.getInt("column2")
+
+        }
+        resultSet.close()
+        statement.close()
+        some.close()
+    } catch (e: Exception) {
+
+    }
+
     Surface(color = Color.White, modifier = Modifier.fillMaxSize()) {
 
 
 
+        Text(text = column1Value)
         Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier
             .padding(16.dp)
             .fillMaxWidth()) {

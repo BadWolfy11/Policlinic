@@ -60,7 +60,7 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
             .fillMaxWidth()) {
             Surface(color = Color.White, modifier = Modifier.padding(8.dp)) {
 
-                Text(text = "Вход в аккаунт", modifier = Modifier.padding(10.dp))
+                Text(text = "Регистрация", modifier = Modifier.padding(10.dp))
 
             }
             Surface(color = Color.White, modifier = Modifier.padding(8.dp)) {
